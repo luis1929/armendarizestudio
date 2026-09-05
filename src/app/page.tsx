@@ -4,7 +4,8 @@ import { WorkshopBanner } from '@/components/WorkshopBanner';
 import { TrustBadges } from '@/components/TrustBadges';
 import { Footer } from '@/components/Footer';
 import { WhatsAppFloat } from '@/components/WhatsAppFloat';
-import { InstagramCarousel } from '@/components/InstagramCarousel';
+import { InstagramHeroCarousel } from '@/components/InstagramHeroCarousel';
+import { InstagramFeed } from '@/components/InstagramFeed';
 import productsData from '@/data/products.json';
 import type { Product } from '@/types/product';
 import { Metadata } from 'next';
@@ -26,10 +27,11 @@ export default function HomePage() {
     <>
       <Header />
       <main className="pt-20 pb-16 px-6 max-w-7xl mx-auto flex-1">
-        <InstagramCarousel autoPlay autoPlayInterval={5000} maxPosts={6} />
+        <InstagramHeroCarousel autoPlay autoPlayInterval={5000} maxPosts={6} />
         <ProductGrid products={products} />
         <WorkshopBanner />
         <TrustBadges />
+        <InstagramFeed />
       </main>
       <Footer />
       <WhatsAppFloat />
