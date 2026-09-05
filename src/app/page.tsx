@@ -28,8 +28,8 @@ export default function HomePage() {
       <Header />
       <main className="pt-20 pb-16 px-6 max-w-7xl mx-auto flex-1">
         <InstagramHeroCarousel autoPlay autoPlayInterval={5000} maxPosts={6} />
-        <ProductGrid products={products} />
         <WorkshopBanner />
+        <ProductGrid products={products} />
         <TrustBadges />
         <InstagramFeed />
       </main>
