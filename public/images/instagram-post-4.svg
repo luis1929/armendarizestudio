@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" fill="none">
+  <rect width="1080" height="1080" fill="#F4ECF7"/>
+  <rect x="100" y="150" width="880" height="300" rx="10" fill="#FFFFFF" stroke="#D7BDE2" stroke-width="3"/>
+  <path d="M200 250 L880 250" stroke="#BB8FCE" stroke-width="2" stroke-dasharray="10,5"/>
+  <path d="M200 350 L880 350" stroke="#BB8FCE" stroke-width="2" stroke-dasharray="10,5"/>
+  <circle cx="150" cy="250" r="8" fill="#AF7AC5"/>
+  <circle cx="150" cy="350" r="8" fill="#AF7AC5"/>
+  <text x="300" y="255" font-family="Georgia, serif" font-size="24" fill="#7D3C98">Boceto inicial</text>
+  <text x="300" y="355" font-family="Georgia, serif" font-size="24" fill="#7D3C98">Diseño digital</text>
+  <rect x="100" y="550" width="880" height="300" rx="10" fill="#FFFFFF" stroke="#D7BDE2" stroke-width="3"/>
+  <ellipse cx="540" cy="650" rx="100" ry="70" fill="#D7BDE2" opacity="0.5"/>
+  <path d="M480 620 Q540 580 600 620" stroke="#AF7AC5" stroke-width="4" fill="none"/>
+  <path d="M480 620 Q540 660 600 620" stroke="#AF7AC5" stroke-width="4" fill="none"/>
+  <text x="300" y="595" font-family="Georgia, serif" font-size="24" fill="#7D3C98">Corte de tela</text>
+  <text x="300" y="695" font-family="Georgia, serif" font-size="24" fill="#7D3C98">Ensamblaje final</text>
+  <circle cx="900" cy="595" r="8" fill="#AF7AC5"/>
+  <circle cx="900" cy="695" r="8" fill="#AF7AC5"/>
+  <text x="540" y="980" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#AF7AC5">@armendariz_estudio</text>
+</svg>

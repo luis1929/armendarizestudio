@@ -4,6 +4,7 @@ import { WorkshopBanner } from '@/components/WorkshopBanner';
 import { TrustBadges } from '@/components/TrustBadges';
 import { Footer } from '@/components/Footer';
 import { WhatsAppFloat } from '@/components/WhatsAppFloat';
+import { InstagramFeed } from '@/components/InstagramFeed';
 import productsData from '@/data/products.json';
 import type { Product } from '@/types/product';
 import { Metadata } from 'next';
@@ -28,6 +29,7 @@ export default function HomePage() {
         <ProductGrid products={products} />
         <WorkshopBanner />
         <TrustBadges />
+        <InstagramFeed />
       </main>
       <Footer />
       <WhatsAppFloat />

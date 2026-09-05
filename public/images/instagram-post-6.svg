@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" fill="none">
+  <rect width="1080" height="1080" fill="#FEF3E2"/>
+  <rect x="180" y="180" width="720" height="720" rx="30" fill="#FFFFFF" stroke="#FFCC80" stroke-width="5"/>
+  <ellipse cx="540" cy="380" rx="150" ry="100" fill="#FFE0B2" opacity="0.5"/>
+  <path d="M450 380 Q540 300 630 380" stroke="#FFB74D" stroke-width="6" fill="none"/>
+  <path d="M450 380 Q540 440 630 380" stroke="#FFB74D" stroke-width="6" fill="none"/>
+  <ellipse cx="540" cy="380" rx="40" ry="25" fill="#FFCC80" opacity="0.6"/>
+  <path d="M510 365 Q540 350 570 365" stroke="#E65100" stroke-width="3" fill="none"/>
+  <path d="M510 395 Q540 410 570 395" stroke="#E65100" stroke-width="3" fill="none"/>
+  <circle cx="500" cy="360" r="6" fill="#E65100"/>
+  <circle cx="580" cy="360" r="6" fill="#E65100"/>
+  <rect x="340" y="520" width="400" height="200" rx="20" fill="#FFF8E1" stroke="#FFCC80" stroke-width="3"/>
+  <text x="540" y="580" text-anchor="middle" font-family="Georgia, serif" font-size="32" fill="#E65100" font-weight="bold">REGALO ÚNICO</text>
+  <text x="540" y="630" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#BF360C">Obra de arte que llevas contigo</text>
+  <text x="540" y="670" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#E65100">Hecho con amor en Colombia ❤️</text>
+  <circle cx="540" cy="820" r="50" fill="#FFCC80" opacity="0.3"/>
+  <path d="M540 790 L540 850" stroke="#FFB74D" stroke-width="4" stroke-linecap="round"/>
+  <path d="M510 820 L570 820" stroke="#FFB74D" stroke-width="4" stroke-linecap="round"/>
+  <text x="540" y="980" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#FFB74D">@armendariz_estudio</text>
+</svg>

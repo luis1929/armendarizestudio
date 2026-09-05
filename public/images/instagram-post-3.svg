@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" fill="none">
+  <rect width="1080" height="1080" fill="#FDF2E9"/>
+  <ellipse cx="540" cy="400" rx="140" ry="100" fill="#F5B7B1" opacity="0.4"/>
+  <path d="M540 320 Q620 320 620 400 Q620 480 540 480 Q460 480 460 400 Q460 320 540 320" fill="#E8A87C" opacity="0.6"/>
+  <ellipse cx="540" cy="380" rx="30" ry="15" fill="#D4A574"/>
+  <path d="M510 420 Q540 450 570 420" stroke="#8B5A2B" stroke-width="3" fill="none"/>
+  <path d="M480 440 Q540 470 600 440" stroke="#A67C52" stroke-width="2" fill="none"/>
+  <ellipse cx="540" cy="400" rx="80" ry="5" fill="#D4A574" opacity="0.3"/>
+  <path d="M540 500 L540 650" stroke="#D4A574" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="540" cy="650" rx="60" ry="20" fill="#E8A87C" opacity="0.5"/>
+  <text x="540" y="780" text-anchor="middle" font-family="Georgia, serif" font-size="48" fill="#8B5A2B" font-weight="bold">LIBÉLULA</text>
+  <text x="540" y="840" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#A67C52">Ilustración a mano • Pieza única</text>
+  <text x="540" y="980" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#D4A574">@armendariz_estudio</text>
+</svg>
