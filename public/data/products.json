@@ -1,0 +1,56 @@
+[
+  {
+    "id": "bolso-felino",
+    "title": "BOLSO ARTESANAL - FELINO",
+    "image": "/images/bolso-felino.svg",
+    "originalPrice": 650000,
+    "salePrice": 129990,
+    "discount": 80,
+    "whatsappUrl": "https://wa.link/6jgk9x"
+  },
+  {
+    "id": "bolsa-libélula",
+    "title": "BOLSA ARTESANAL - LIBÉLULA",
+    "image": "/images/bolsa-libélula.svg",
+    "originalPrice": 650000,
+    "salePrice": 129990,
+    "discount": 80,
+    "whatsappUrl": "https://wa.link/6jgk9x"
+  },
+  {
+    "id": "bolso-gato-negro",
+    "title": "BOLSO ARTESANAL - GATO NEGRO",
+    "image": "/images/bolso-gato-negro.svg",
+    "originalPrice": 650000,
+    "salePrice": 129990,
+    "discount": 80,
+    "whatsappUrl": "https://wa.link/6jgk9x"
+  },
+  {
+    "id": "bolso-lirios",
+    "title": "BOLSO ARTESANAL - LÍRIOS BLANCOS",
+    "image": "/images/bolso-lirios.svg",
+    "originalPrice": 650000,
+    "salePrice": 129990,
+    "discount": 80,
+    "whatsappUrl": "https://wa.link/6jgk9x"
+  },
+  {
+    "id": "bolso-perro-encantado",
+    "title": "BOLSO ARTESANAL - PERRO ENCANTADO",
+    "image": "/images/bolso-perro-encantado.svg",
+    "originalPrice": 650000,
+    "salePrice": 129990,
+    "discount": 80,
+    "whatsappUrl": "https://wa.link/6jgk9x"
+  },
+  {
+    "id": "bolsa-dragon",
+    "title": "BOLSA ARTESANAL - DRAGÓN LECTOR",
+    "image": "/images/bolsa-dragon.svg",
+    "originalPrice": 650000,
+    "salePrice": 129990,
+    "discount": 80,
+    "whatsappUrl": "https://wa.link/6jgk9x"
+  }
+]
