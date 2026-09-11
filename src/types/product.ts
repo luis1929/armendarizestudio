@@ -11,4 +11,8 @@ export interface Product {
 export interface CartItem {
   id: string;
   quantity: number;
+  title?: string;
+  name?: string;
+  salePrice?: number;
+  originalPrice?: number;
 }
