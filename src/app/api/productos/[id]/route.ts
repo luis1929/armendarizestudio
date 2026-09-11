@@ -3,7 +3,7 @@ import { db } from '@/prisma/db';
 
 export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const producto = await db.producto.findFirst({ where: { id } });
+  const producto = await db.orm.public.Producto.where((f: any) => f.id.eq(id)).first();
   if (!producto) {
     return NextResponse.json({ error: 'Producto no encontrado' }, { status: 404 });
   }
@@ -13,17 +13,16 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
 export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const body = await request.json();
-  const updated = await db.producto.findFirst({ where: { id } });
-  if (!updated) {
+  const existing = await db.orm.public.Producto.where((f: any) => f.id.eq(id)).first();
+  if (!existing) {
     return NextResponse.json({ error: 'Producto no encontrado' }, { status: 404 });
   }
-  const result = await db.producto.findFirst({ where: { id } });
-  return NextResponse.json(result);
+  return NextResponse.json(existing);
 }
 
 export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const existing = await db.producto.findFirst({ where: { id } });
+  const existing = await db.orm.public.Producto.where((f: any) => f.id.eq(id)).first();
   if (!existing) {
     return NextResponse.json({ error: 'Producto no encontrado' }, { status: 404 });
   }

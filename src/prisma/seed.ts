@@ -1,33 +1,29 @@
-import { PrismaClient } from '@prisma/client';
+import postgres from '@prisma/orm-postgres/runtime';
 import { contract } from './contract';
 
-const prisma = new PrismaClient({ contract });
+const db = postgres({ contract, url: process.env['DATABASE_URL']! });
 
 async function main() {
   console.log('🌱 Seeding database...');
 
   // Create admin user
-  const adminUser = await prisma.user.upsert({
-    where: { email: 'admin@armendarizestudio.com' },
-    update: {},
-    create: {
-      email: 'admin@armendarizestudio.com',
-      password: 'admin123', // In production, hash this!
-      role: 'ADMIN',
-      name: 'Admin Test',
-    },
+  const existingAdmin = await db.orm.public.User.where((f) => f.email.eq('admin@armendarizestudio.com')).first();
+  const adminUser = existingAdmin ?? await db.orm.public.User.create({
+    email: 'admin@armendarizestudio.com',
+    password: 'admin123', // In production, hash this!
+    role: 'ADMIN',
+    name: 'Admin Test',
   });
   console.log('✅ Admin user created:', adminUser.email);
 
   // Create system config
-  await prisma.systemConfig.upsert({
-    where: { key: 'app.name' },
-    update: {},
-    create: {
+  const existingConfig = await db.orm.public.SystemConfig.where((f) => f.key.eq('app.name')).first();
+  if (!existingConfig) {
+    await db.orm.public.SystemConfig.create({
       key: 'app.name',
       value: 'Armendáriz Estudio',
-    },
-  });
+    });
+  }
   console.log('✅ System config created');
 
   // Create products
@@ -83,17 +79,13 @@ async function main() {
   ];
 
   for (const product of products) {
-    await prisma.producto.create({
-      data: product,
-    });
+    await db.orm.public.Producto.create(product);
   }
   console.log('✅ Products created:', products.length);
 
   // Create migration tracking
-  await prisma.migrationTracking.create({
-    data: {
-      version: '2024.01.01',
-    },
+  await db.orm.public.MigrationTracking.create({
+    version: '2024.01.01',
   });
   console.log('✅ Migration tracking created');
 
@@ -106,5 +98,5 @@ main()
     process.exit(1);
   })
   .finally(async () => {
-    await prisma.$disconnect();
+    await db.close();
   });

@@ -15,11 +15,7 @@ export const authOptions = {
         password: { label: 'Contraseña', type: 'password' },
       },
       async authorize(credentials: Record<string, string | undefined> | undefined) {
-        const user: User | null = await db.user.findFirst({
-          where: {
-            email: credentials?.email as string,
-          },
-        })
+        const user: User | null = await db.orm.public.User.where((f: any) => f.email.eq(credentials?.email as string)).first() as User | null
 
         if (!user || user.password !== (credentials?.password as string)) {
           throw new Error('Credenciales inválidas')
