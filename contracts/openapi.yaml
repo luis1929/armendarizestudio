@@ -1,0 +1,444 @@
+openapi: 3.1.0
+info:
+  title: "Armend\xE1riz Estudio API"
+  version: 1.0.0
+paths:
+  /health:
+    get:
+      tags:
+      - Health
+      summary: Health Check
+      description: Returns the health status of the service
+      operationId: get_health_status
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /api/v1/proyectos/:
+    get:
+      tags:
+      - proyectos
+      summary: Listar todos los proyectos (con barra)
+      description: Obtiene una lista de proyectos con barra final
+      operationId: listar_proyectos_api_v1_proyectos__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ProjectResponse'
+                type: array
+                title: Response Listar Proyectos Api V1 Proyectos  Get
+        '404':
+          description: No encontrado
+  /api/v1/proyectos:
+    get:
+      tags:
+      - proyectos
+      summary: Listar todos los proyectos
+      description: Obtiene una lista de proyectos
+      operationId: listar_proyectos_api_v1_proyectos_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ProjectResponse'
+                type: array
+                title: Response Listar Proyectos Api V1 Proyectos Get
+        '404':
+          description: No encontrado
+  /api/v1/proyectos/{proyecto_id}:
+    get:
+      tags:
+      - proyectos
+      summary: Obtener proyecto por ID
+      description: "Obtiene los detalles de un proyecto espec\xEDfico"
+      operationId: obtener_proyecto_api_v1_proyectos__proyecto_id__get
+      parameters:
+      - name: proyecto_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Proyecto Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectResponse'
+        '404':
+          description: No encontrado
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/servicios:
+    get:
+      tags:
+      - servicios
+      summary: Listar todos los servicios
+      description: Obtiene una lista de servicios disponibles
+      operationId: listar_servicios_api_v1_servicios_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ServiceResponse'
+                type: array
+                title: Response Listar Servicios Api V1 Servicios Get
+        '404':
+          description: No encontrado
+  /api/v1/contacto:
+    post:
+      tags:
+      - contacto
+      summary: "Enviar solicitud de contacto/cotizaci\xF3n"
+      description: Recibe una solicitud de contacto y retorna un ID para seguimiento
+      operationId: crear_solicitud_contacto_api_v1_contacto_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactResponse'
+        '400':
+          description: "Solicitud inv\xE1lida"
+        '422':
+          description: "Error de validaci\xF3n"
+  /api/v1/citas:
+    get:
+      tags:
+      - citas
+      summary: Listar todas las citas
+      description: Obtiene una lista de todas las citas programadas
+      operationId: listar_citas_api_v1_citas_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AppointmentResponse'
+                type: array
+                title: Response Listar Citas Api V1 Citas Get
+        '404':
+          description: Cita no encontrada
+        '400':
+          description: "Datos inv\xE1lidos"
+    post:
+      tags:
+      - citas
+      summary: Programar una nueva cita
+      description: Reserva una cita con el estudio y retorna los detalles
+      operationId: crear_cita_api_v1_citas_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppointmentCreate'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppointmentResponse'
+        '404':
+          description: Cita no encontrada
+        '400':
+          description: "Datos inv\xE1lidos"
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/citas/{cita_id}:
+    get:
+      tags:
+      - citas
+      summary: Obtener cita por ID
+      description: Recupera los detalles de una cita existente
+      operationId: obtener_cita_api_v1_citas__cita_id__get
+      parameters:
+      - name: cita_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Cita Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppointmentResponse'
+        '404':
+          description: Cita no encontrada
+        '400':
+          description: "Datos inv\xE1lidos"
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    AppointmentCreate:
+      properties:
+        nombre:
+          type: string
+          maxLength: 100
+          minLength: 1
+          title: Nombre
+          description: Nombre del solicitante
+        email:
+          type: string
+          maxLength: 255
+          minLength: 5
+          title: Email
+          description: "Direcci\xF3n de email"
+        fecha_cita:
+          type: string
+          format: date-time
+          title: Fecha de la cita
+          description: Fecha y hora de la cita
+        notas:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Notas
+          description: Notas adicionales sobre la cita
+      type: object
+      required:
+      - nombre
+      - email
+      - fecha_cita
+      title: AppointmentCreate
+    AppointmentResponse:
+      properties:
+        id:
+          type: string
+          title: ID de cita
+          description: "ID \xFAnico de la cita"
+        nombre:
+          type: string
+          title: Nombre
+          description: Nombre del solicitante
+        email:
+          type: string
+          title: Email
+          description: "Direcci\xF3n de email"
+        fecha_cita:
+          type: string
+          format: date-time
+          title: Fecha de la cita
+          description: Fecha de la cita
+        notas:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Notas
+          description: Notas adicionales
+        status:
+          type: string
+          title: Estado
+          description: Estado de la cita
+          default: pending
+        creado_en:
+          type: string
+          format: date-time
+          title: "Fecha de creaci\xF3n"
+          description: "Cu\xE1ndo fue creado"
+      type: object
+      required:
+      - id
+      - nombre
+      - email
+      - fecha_cita
+      title: AppointmentResponse
+    ContactRequest:
+      properties:
+        nombre:
+          type: string
+          maxLength: 100
+          minLength: 1
+          title: Nombre
+          description: Nombre del contacto
+        email:
+          type: string
+          maxLength: 255
+          minLength: 5
+          title: Email
+          description: "Direcci\xF3n de email"
+        telefono:
+          anyOf:
+          - type: string
+            maxLength: 20
+          - type: 'null'
+          title: "Tel\xE9fono"
+          description: "N\xFAmero de tel\xE9fono"
+        mensaje:
+          type: string
+          minLength: 1
+          title: Mensaje
+          description: Mensaje o solicitud
+        tipo_servicio:
+          anyOf:
+          - type: string
+            maxLength: 100
+          - type: 'null'
+          title: Tipo de servicio
+          description: Tipo de servicio consultado
+      type: object
+      required:
+      - nombre
+      - email
+      - mensaje
+      title: ContactRequest
+    ContactResponse:
+      properties:
+        id:
+          type: string
+          title: ID de solicitud
+          description: ID de la solicitud de contacto
+        status:
+          type: string
+          title: Estado
+          description: Estado de la solicitud
+          default: pending
+        timestamp:
+          type: string
+          format: date-time
+          title: Marca de tiempo
+          description: Marca de tiempo
+      type: object
+      required:
+      - id
+      title: ContactResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ProjectResponse:
+      properties:
+        titulo:
+          type: string
+          title: "T\xEDtulo del proyecto"
+          description: "T\xEDtulo del proyecto"
+        descripcion:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: "Descripci\xF3n detallada"
+          description: "Descripci\xF3n detallada"
+        categoria:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: "Categor\xEDa del proyecto"
+          description: "Categor\xEDa del proyecto"
+        ubicacion:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: "Ubicaci\xF3n geogr\xE1fica"
+          description: "Ubicaci\xF3n geogr\xE1fica"
+        imagenes:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: "Lista de URLs de im\xE1genes"
+          description: "Lista de URLs de im\xE1genes"
+        fecha_creacion:
+          type: string
+          format: date-time
+          title: "Fecha de creaci\xF3n"
+          description: "Fecha de creaci\xF3n"
+        id:
+          type: string
+          title: "Identificador \xFAnico del proyecto"
+          description: "Identificador \xFAnico del proyecto"
+      type: object
+      required:
+      - titulo
+      - id
+      title: ProjectResponse
+    ServiceResponse:
+      properties:
+        id:
+          type: string
+          title: "Identificador \xFAnico del servicio"
+          description: "Identificador \xFAnico del servicio"
+        nombre:
+          type: string
+          title: Nombre del servicio
+          description: Nombre del servicio
+        descripcion:
+          type: string
+          title: "Descripci\xF3n del servicio"
+          description: "Descripci\xF3n del servicio"
+      type: object
+      required:
+      - id
+      - nombre
+      - descripcion
+      title: ServiceResponse
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError

@@ -1,0 +1,45 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Model User — tarea 1.1: Crear tabla de usuarios
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  password     String
+  role         String   @default("USER")
+  name         String? 
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// Model SystemConfig — tarea 1.2: Tablas de configuración del sistema
+model SystemConfig {
+  key      String   @id
+  value    String
+  updatedAt DateTime @updatedAt
+}
+
+// Model MigrationTracking — tarea 1.5: Seguimiento de versiones
+model MigrationTracking {
+  id        String   @id @default(uuid())
+  version   String
+  appliedAt DateTime @default(now())
+}
+
+// Model Producto — para e-commerce, usado en frontend y API
+model Producto {
+  id          String   @id @default(uuid())
+  title       String
+  image       String
+  originalPrice Int
+  salePrice   Int
+  discount    Int
+  whatsappUrl String
+  createdAt   DateTime @default(now())
+}

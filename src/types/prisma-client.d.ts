@@ -31,7 +31,8 @@ declare module '@prisma/client' {
   }
 
   interface ModelDelegate<T, C> {
-    findFirst(args: FindFirstArgs<T>): Promise<T | null>;
+    findFirst(args?: FindFirstArgs<T>): Promise<T | null>;
+    findMany(args?: FindFirstArgs<T>): Promise<T[]>;
     upsert(args: UpsertArgs<C>): Promise<T>;
     create(args: CreateArgs<C>): Promise<T>;
   }
