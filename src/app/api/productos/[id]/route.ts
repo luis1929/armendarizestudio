@@ -26,5 +26,6 @@ export async function DELETE(request: Request, { params }: { params: Promise<{ i
   if (!existing) {
     return NextResponse.json({ error: 'Producto no encontrado' }, { status: 404 });
   }
+  await db.orm.public.Producto.where((f: any) => f.id.eq(id)).delete();
   return NextResponse.json({ success: true });
 }
