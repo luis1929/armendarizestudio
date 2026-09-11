@@ -7,3 +7,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## Excepción Técnica — Ley 3 (Uniformidad de Dependencias)
+
+Excepción técnica aprobada: Coexistencia temporal de `@prisma/client` v7.10.0 con `@prisma/orm-postgres` v8.0.0-rc.* requerida para compatibilidad estricta con la API de `contract.ts` sin introducir builds nightly/inestables.
