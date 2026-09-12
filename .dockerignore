@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+
+# Next.js build cache
+.next/
+
+# Git
+.git/
+.gitignore
+
+# Environment files (secrets)
+.env
+.env.local
+.env.production
+!.env.example
+!.env.production.example
+
+# Development files
+*.log
+*.test.*
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Docker
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# IDE
+.vscode/
+.idea/
+.cursor/
+.cursorrules
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# Coolify / CI
+.context/
+.agent/
+.opencode/
+
+# Test results
+test-results/
+playwright-report/
+coverage/
